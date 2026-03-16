@@ -56,7 +56,7 @@ SELECT DISTINCT ON (m.customer_email)
     l.id,
     p.id
 FROM mock_data m
-JOIN dim_location l
+LEFT JOIN dim_location l
     ON l.country = m.customer_country
     AND l.postal_code = m.customer_postal_code
 JOIN dim_pet p
@@ -72,7 +72,7 @@ SELECT DISTINCT ON (m.seller_email)
     m.seller_email,
     l.id
 FROM mock_data m
-JOIN dim_location l
+LEFT JOIN dim_location l
     ON l.country = m.seller_country
     AND l.postal_code = m.seller_postal_code;
 
@@ -123,7 +123,7 @@ SELECT DISTINCT ON (m.store_name)
     m.store_email,
     l.id
 FROM mock_data m
-JOIN dim_location l
+LEFT JOIN dim_location l
     ON l.country = m.store_country
     AND l.city = m.store_city
     AND l.state = m.store_state;
